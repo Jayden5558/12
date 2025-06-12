@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Tools Directory - Curated Global Digital Office Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .search-section {
+            max-width: 600px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 25px 18px 50px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 18px;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 5px;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .category-link {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #667eea;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            display: none;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            background: white;
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .tool-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover .tool-logo {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .logo-fallback {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .tool-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tool-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2d3748;
+            line-height: 1.2;
+        }
+
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            font-size: 16px;
+            color: #ffd700;
+        }
+
+        .rating-text {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .hot-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .tool-description {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-tag {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+            flex-shrink: 0;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+        }
+
+        .filter-status {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            display: none;
+        }
+
+        .filter-status .clear-filter {
+            color: #667eea;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        .filter-status .clear-filter:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+
+            .filter-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trust-indicators {
+                gap: 15px;
+            }
+
+            .trust-item {
+                padding: 10px 15px;
+            }
+
+            .trust-number {
+                font-size: 1.5rem;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .action-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Professional Tools Directory</h1>
+            <p>Curated global digital office tools to boost enterprise efficiency</p>
+            
+            <div class="search-section">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search tool names, features, categories..." id="searchInput" autocomplete="off">
+                </div>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="trust-number" data-target="25000">0</span>
+                        <div class="trust-label">Registered Users</div>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number" data-target="37">0</span>
+                        <div class="trust-label">Curated Tools</div>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number" data-target="6">0</span>
+                        <div class="trust-label">Tool Categories</div>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number" data-target="98">0</span>
+                        <div class="trust-label">Satisfaction %</div>
+                    </div>
+                </div>
+                
+                <div class="filter-tags">
+                    <a href="?" class="category-link">All Tools</a>
+                    <a href="?category=AI Tools" class="category-link">AI Tools</a>
+                    <a href="?category=Career Development" class="category-link">Career Development</a>
+                    <a href="?category=Development Tools" class="category-link">Development</a>
+                    <a href="?category=Data Analytics" class="category-link">Data Analytics</a>
+                    <a href="?category=Video Creation" class="category-link">Video Creation</a>
+                    <a href="?category=Social Media" class="category-link">Social Media</a>
+                </div>
+
+                <div class="breadcrumb" id="breadcrumb">
+                    <a href="?">Home</a> > <span id="currentCategory">All Tools</span>
+                </div>
+
+                <div class="filter-status" id="filterStatus">
+                    Showing: <strong id="categoryName">All Tools</strong>
+                    <a href="?" class="clear-filter">Clear Filter</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Tools -->
+        <div class="category-section" data-category="AI Tools">
+            <h2 class="category-title">🤖 AI Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="AI Tools" data-search="motion AI scheduling smart task management time planning">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/usemotion.com" class="tool-logo" alt="Motion AI Task Management" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">⏰</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Motion</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.9 (2.7k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI-powered intelligent scheduling platform that automatically arranges tasks and meetings, boosting work efficiency by 137%.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">AI Scheduling</span>
+                            <span class="feature-tag">Auto Planning</span>
+                            <span class="feature-tag">Time Management</span>
+                            <span class="feature-tag">Task Optimization</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">⏰ Smart Scheduling</div>
+                            <a href="https://www.usemotion.com/" target="_blank" class="action-button">Try Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="AI Tools" data-search="chatgpt openai conversational AI writing assistant language model">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/openai.com" class="tool-logo" alt="ChatGPT AI Assistant" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🤖</div>
+                            <div class="tool-info">
+                                <div class="tool-name">ChatGPT</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.8 (1.2M reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Advanced AI chatbot for writing, coding, analysis, and creative tasks. Provides intelligent responses and helps with various professional workflows.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Conversational AI</span>
+                            <span class="feature-tag">Writing Assistant</span>
+                            <span class="feature-tag">Code Generation</span>
+                            <span class="feature-tag">Data Analysis</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🤖 AI Assistant</div>
+                            <a href="https://chat.openai.com/" target="_blank" class="action-button">Chat Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="AI Tools" data-search="grammarly writing assistant grammar checker AI proofreading editing">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/grammarly.com" class="tool-logo" alt="Grammarly Writing Assistant" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">✍️</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Grammarly</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (298.4k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI-powered writing assistant that helps improve grammar, clarity, tone, and style across all your communications and documents.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Grammar Check</span>
+                            <span class="feature-tag">Style Suggestions</span>
+                            <span class="feature-tag">Tone Detection</span>
+                            <span class="feature-tag">Plagiarism Check</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">✍️ Writing Assistant</div>
+                            <a href="https://www.grammarly.com/" target="_blank" class="action-button">Write Better</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="AI Tools" data-search="claude anthropic AI assistant reasoning analysis helpful harmless honest">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/anthropic.com" class="tool-logo" alt="Claude AI Assistant" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🧠</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Claude</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.9 (89.2k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Advanced AI assistant by Anthropic, focused on helpful, harmless, and honest interactions for complex reasoning, analysis, and creative tasks.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Advanced Reasoning</span>
+                            <span class="feature-tag">Document Analysis</span>
+                            <span class="feature-tag">Code Review</span>
+                            <span class="feature-tag">Creative Writing</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🧠 AI Reasoning</div>
+                            <a href="https://claude.ai/" target="_blank" class="action-button">Chat with Claude</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="AI Tools" data-search="midjourney AI art image generation creative digital artwork artificial intelligence">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/midjourney.com" class="tool-logo" alt="Midjourney AI Art" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🎨</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Midjourney</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (67.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI-powered image generation tool that creates stunning artwork and visuals from text descriptions using advanced machine learning models.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">AI Image Generation</span>
+                            <span class="feature-tag">Text-to-Image</span>
+                            <span class="feature-tag">Artistic Styles</span>
+                            <span class="feature-tag">High Resolution</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🎨 AI Art</div>
+                            <a href="https://www.midjourney.com/" target="_blank" class="action-button">Create Art</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="AI Tools" data-search="github copilot AI code assistant programming autocomplete suggestions development">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/github.com" class="tool-logo" alt="GitHub Copilot AI Coding" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">⚡</div>
+                            <div class="tool-info">
+                                <div class="tool-name">GitHub Copilot</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (156.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI pair programmer that suggests code and entire functions in real-time, helping developers write code faster and more efficiently.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">AI Code Completion</span>
+                            <span class="feature-tag">Multi-language Support</span>
+                            <span class="feature-tag">Context Aware</span>
+                            <span class="feature-tag">Real-time Suggestions</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">⚡ AI Coding</div>
+                            <a href="https://github.com/features/copilot" target="_blank" class="action-button">Start Coding</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Development Tools -->
+        <div class="category-section" data-category="Career Development">
+            <h2 class="category-title">🚀 Career Development Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="Career Development" data-search="simplify job application career development resume optimization">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/simplify.jobs" class="tool-logo" alt="Simplify Job Tool" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">💼</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Simplify</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.8 (2.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI-powered smart job search platform offering resume optimization, job recommendations, and application tracking for a comprehensive job search solution.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">AI Resume Optimization</span>
+                            <span class="feature-tag">Job Recommendations</span>
+                            <span class="feature-tag">Application Tracking</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">💼 Career Development</div>
+                            <a href="https://simplify.jobs/" target="_blank" class="action-button">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Career Development" data-search="linkedin professional networking career social">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/linkedin.com" class="tool-logo" alt="LinkedIn Professional Networking" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🔗</div>
+                            <div class="tool-info">
+                                <div class="tool-name">LinkedIn</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.5 (25.7k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">World's largest professional networking platform for building career networks, finding job opportunities, and sharing industry insights.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Professional Networking</span>
+                            <span class="feature-tag">Job Search</span>
+                            <span class="feature-tag">Industry News</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🔗 Professional Network</div>
+                            <a href="https://www.linkedin.com/" target="_blank" class="action-button">Join Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Career Development" data-search="indeed job search employment recruitment career finder">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/indeed.com" class="tool-logo" alt="Indeed Job Search" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🔍</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Indeed</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (87.2k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">World's #1 job site with millions of job listings, company reviews, and salary information to help you find your next career opportunity.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Job Search Engine</span>
+                            <span class="feature-tag">Company Reviews</span>
+                            <span class="feature-tag">Salary Research</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">💼 Career Development</div>
+                            <a href="https://www.indeed.com/" target="_blank" class="action-button">Search Jobs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Career Development" data-search="glassdoor company reviews salary information interview preparation career research">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/glassdoor.com" class="tool-logo" alt="Glassdoor Company Reviews" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🏢</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Glassdoor</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.3 (45.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Transparent workplace community providing company reviews, salary data, interview questions, and career insights from employees worldwide.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Company Reviews</span>
+                            <span class="feature-tag">Salary Data</span>
+                            <span class="feature-tag">Interview Prep</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🏢 Company Research</div>
+                            <a href="https://www.glassdoor.com/" target="_blank" class="action-button">Research Companies</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Career Development" data-search="coursera online learning courses certification skills development education">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/coursera.org" class="tool-logo" alt="Coursera Online Learning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🎓</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Coursera</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (156.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Leading online learning platform offering courses, certificates, and degrees from top universities and companies to advance your career.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Online Courses</span>
+                            <span class="feature-tag">Professional Certificates</span>
+                            <span class="feature-tag">University Degrees</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🎓 Skills Development</div>
+                            <a href="https://www.coursera.org/" target="_blank" class="action-button">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Career Development" data-search="udemy online learning skills courses programming business design marketing">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/udemy.com" class="tool-logo" alt="Udemy Online Learning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📚</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Udemy</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.3 (287.9k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Global marketplace for learning with thousands of practical courses in technology, business, design, and personal development.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Practical Courses</span>
+                            <span class="feature-tag">Lifetime Access</span>
+                            <span class="feature-tag">Expert Instructors</span>
+                            <span class="feature-tag">Mobile Learning</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📚 Practical Learning</div>
+                            <a href="https://www.udemy.com/" target="_blank" class="action-button">Browse Courses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div class="category-section" data-category="Development Tools">
+            <h2 class="category-title">⚙️ Development Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="Development Tools" data-search="github version control git repository code collaboration open source">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/github.com" class="tool-logo" alt="GitHub Code Repository" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🐙</div>
+                            <div class="tool-info">
+                                <div class="tool-name">GitHub</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.8 (234.5k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">World's leading development platform for version control, code collaboration, and open source project hosting with Git repositories.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Version Control</span>
+                            <span class="feature-tag">Code Collaboration</span>
+                            <span class="feature-tag">CI/CD</span>
+                            <span class="feature-tag">Issue Tracking</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🐙 Code Repository</div>
+                            <a href="https://github.com/" target="_blank" class="action-button">Start Coding</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="visual studio code vscode editor IDE microsoft development coding">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/code.visualstudio.com" class="tool-logo" alt="Visual Studio Code" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">💻</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Visual Studio Code</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.9 (178.9k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Lightweight but powerful source code editor with built-in Git support, debugging, and extensive extension marketplace for all languages.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Code Editor</span>
+                            <span class="feature-tag">Extensions</span>
+                            <span class="feature-tag">Debugging</span>
+                            <span class="feature-tag">Multi-language</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">💻 Code Editor</div>
+                            <a href="https://code.visualstudio.com/" target="_blank" class="action-button">Download Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="vercel hosting deployment frontend react nextjs serverless edge functions">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/vercel.com" class="tool-logo" alt="Vercel Deployment Platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">▲</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Vercel</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (15.6k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Platform for frontend deployment and serverless functions, optimized for React, Next.js with instant global CDN and zero configuration.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Frontend Hosting</span>
+                            <span class="feature-tag">Serverless Functions</span>
+                            <span class="feature-tag">Global CDN</span>
+                            <span class="feature-tag">Git Integration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">▲ Deployment</div>
+                            <a href="https://vercel.com/" target="_blank" class="action-button">Deploy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="docker containerization devops deployment application packaging virtualization">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/docker.com" class="tool-logo" alt="Docker Containerization" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🐳</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Docker</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.6 (89.4k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Leading containerization platform that packages applications with dependencies for consistent deployment across any environment.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Containerization</span>
+                            <span class="feature-tag">DevOps</span>
+                            <span class="feature-tag">Microservices</span>
+                            <span class="feature-tag">Cross-Platform</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🐳 Containerization</div>
+                            <a href="https://www.docker.com/" target="_blank" class="action-button">Get Docker</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="postman API testing development rest graphql automation testing">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/postman.com" class="tool-logo" alt="Postman API Testing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📮</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Postman</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.8 (67.2k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Comprehensive API development platform for building, testing, documenting, and sharing APIs with collaborative team features.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">API Testing</span>
+                            <span class="feature-tag">REST & GraphQL</span>
+                            <span class="feature-tag">API Documentation</span>
+                            <span class="feature-tag">Team Collaboration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📮 API Development</div>
+                            <a href="https://www.postman.com/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="netlify hosting jamstack static sites continuous deployment git workflow">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/netlify.com" class="tool-logo" alt="Netlify Hosting Platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🌐</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Netlify</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (23.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Modern web development platform for JAMstack sites with continuous deployment, serverless functions, and form handling.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">JAMstack Hosting</span>
+                            <span class="feature-tag">Continuous Deployment</span>
+                            <span class="feature-tag">Serverless Functions</span>
+                            <span class="feature-tag">Form Handling</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🌐 JAMstack Platform</div>
+                            <a href="https://www.netlify.com/" target="_blank" class="action-button">Deploy Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Development Tools" data-search="gitlab version control devops CI CD code collaboration repository management">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/gitlab.com" class="tool-logo" alt="GitLab DevOps Platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🦊</div>
+                            <div class="tool-info">
+                                <div class="tool-name">GitLab</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (45.6k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Complete DevOps platform with Git repository management, CI/CD pipelines, issue tracking, and security features all in one.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Git Repository</span>
+                            <span class="feature-tag">CI/CD Pipelines</span>
+                            <span class="feature-tag">DevOps Platform</span>
+                            <span class="feature-tag">Security Scanning</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🦊 DevOps Platform</div>
+                            <a href="https://gitlab.com/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Analytics Tools -->
+        <div class="category-section" data-category="Data Analytics">
+            <h2 class="category-title">📈 Data Analytics Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="Data Analytics" data-search="tableau data visualization business intelligence analytics dashboard reporting">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/tableau.com" class="tool-logo" alt="Tableau Analytics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📊</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Tableau</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.6 (45.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Leading data visualization and business intelligence platform that helps transform raw data into actionable insights and interactive dashboards.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Data Visualization</span>
+                            <span class="feature-tag">Interactive Dashboards</span>
+                            <span class="feature-tag">Business Intelligence</span>
+                            <span class="feature-tag">Self-Service Analytics</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📊 Data Visualization</div>
+                            <a href="https://www.tableau.com/" target="_blank" class="action-button">Try Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Data Analytics" data-search="google analytics web analytics traffic measurement user behavior digital marketing">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/analytics.google.com" class="tool-logo" alt="Google Analytics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📈</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Google Analytics</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (167.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Essential web analytics platform providing detailed insights into website traffic, user behavior, and digital marketing performance.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Web Analytics</span>
+                            <span class="feature-tag">User Tracking</span>
+                            <span class="feature-tag">Conversion Analysis</span>
+                            <span class="feature-tag">Real-time Data</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📈 Web Analytics</div>
+                            <a href="https://analytics.google.com/" target="_blank" class="action-button">Set Up Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Data Analytics" data-search="power BI microsoft business intelligence data analysis reporting dashboards">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/powerbi.microsoft.com" class="tool-logo" alt="Microsoft Power BI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">⚡</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Microsoft Power BI</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.3 (32.7k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Business analytics solution that delivers insights throughout your organization with self-service and enterprise data preparation capabilities.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Business Intelligence</span>
+                            <span class="feature-tag">Data Modeling</span>
+                            <span class="feature-tag">Interactive Reports</span>
+                            <span class="feature-tag">Cloud Integration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">⚡ Business Intelligence</div>
+                            <a href="https://powerbi.microsoft.com/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Data Analytics" data-search="mixpanel product analytics event tracking user behavior funnel analysis retention">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/mixpanel.com" class="tool-logo" alt="Mixpanel Product Analytics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📊</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Mixpanel</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.5 (23.6k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Advanced product analytics platform for tracking user interactions, analyzing funnels, and measuring retention to optimize product experiences.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Product Analytics</span>
+                            <span class="feature-tag">Event Tracking</span>
+                            <span class="feature-tag">Funnel Analysis</span>
+                            <span class="feature-tag">Retention Reports</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📊 Product Analytics</div>
+                            <a href="https://mixpanel.com/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Data Analytics" data-search="amplitude product analytics user journey digital optimization behavioral analytics">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/amplitude.com" class="tool-logo" alt="Amplitude Digital Analytics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📈</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Amplitude</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.6 (18.4k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Digital optimization platform that helps teams understand user behavior and build better product experiences through advanced analytics.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Digital Optimization</span>
+                            <span class="feature-tag">User Journey Mapping</span>
+                            <span class="feature-tag">Behavioral Analytics</span>
+                            <span class="feature-tag">Cohort Analysis</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📈 Digital Optimization</div>
+                            <a href="https://amplitude.com/" target="_blank" class="action-button">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Data Analytics" data-search="looker google cloud business intelligence data platform visualization SQL modeling">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/looker.com" class="tool-logo" alt="Looker Business Intelligence" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">👀</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Looker</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (14.2k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Modern business intelligence platform by Google Cloud that transforms data into actionable insights with SQL-based modeling.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Business Intelligence</span>
+                            <span class="feature-tag">SQL-based Modeling</span>
+                            <span class="feature-tag">Data Platform</span>
+                            <span class="feature-tag">Cloud Integration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">👀 Modern BI</div>
+                            <a href="https://www.looker.com/" target="_blank" class="action-button">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Creation Tools -->
+        <div class="category-section" data-category="Video Creation">
+            <h2 class="category-title">🎬 Video Creation Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="Video Creation" data-search="loom screen recording video messaging async communication screen capture">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/loom.com" class="tool-logo" alt="Loom Screen Recording" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📹</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Loom</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.8 (56.4k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Simple screen recording tool for creating quick video messages, tutorials, and async communication with instant sharing capabilities.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Screen Recording</span>
+                            <span class="feature-tag">Video Messaging</span>
+                            <span class="feature-tag">Instant Sharing</span>
+                            <span class="feature-tag">Team Collaboration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📹 Screen Recording</div>
+                            <a href="https://www.loom.com/" target="_blank" class="action-button">Record Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Video Creation" data-search="clipchamp video editor microsoft easy editing templates social media">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/clipchamp.com" class="tool-logo" alt="Clipchamp Video Editor" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🎞️</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Clipchamp</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.2 (23.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Easy-to-use online video editor with templates, stock footage, and professional features for creating engaging content quickly.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Video Editing</span>
+                            <span class="feature-tag">Templates</span>
+                            <span class="feature-tag">Stock Media</span>
+                            <span class="feature-tag">Social Media Formats</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🎞️ Video Editor</div>
+                            <a href="https://clipchamp.com/" target="_blank" class="action-button">Start Editing</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Video Creation" data-search="riverside remote recording podcast video interviews high quality audio">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/riverside.fm" class="tool-logo" alt="Riverside Remote Recording" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🎙️</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Riverside</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.7 (14.2k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Professional remote recording platform for podcasts and video interviews with studio-quality audio and 4K video recording.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Remote Recording</span>
+                            <span class="feature-tag">4K Video</span>
+                            <span class="feature-tag">Studio Quality Audio</span>
+                            <span class="feature-tag">Podcast Production</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🎙️ Remote Recording</div>
+                            <a href="https://riverside.fm/" target="_blank" class="action-button">Start Recording</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Video Creation" data-search="animoto video maker social media marketing slideshow templates drag drop">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/animoto.com" class="tool-logo" alt="Animoto Video Maker" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🎬</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Animoto</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.3 (19.6k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Easy-to-use video creation platform with drag-and-drop interface, professional templates, and social media optimization features.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Drag & Drop Editor</span>
+                            <span class="feature-tag">Social Media Videos</span>
+                            <span class="feature-tag">Professional Templates</span>
+                            <span class="feature-tag">Music Library</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🎬 Video Templates</div>
+                            <a href="https://animoto.com/" target="_blank" class="action-button">Create Video</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Video Creation" data-search="camtasia screen recording video editing tutorials software training screencasts">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/techsmith.com" class="tool-logo" alt="Camtasia Screen Recording" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📺</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Camtasia</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.6 (27.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Professional screen recording and video editing software for creating tutorials, training videos, and educational content.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Screen Recording</span>
+                            <span class="feature-tag">Video Editing</span>
+                            <span class="feature-tag">Tutorial Creation</span>
+                            <span class="feature-tag">Interactive Elements</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📺 Tutorial Creation</div>
+                            <a href="https://www.techsmith.com/video-editor.html" target="_blank" class="action-button">Try Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Video Creation" data-search="synthesia AI video creation avatars text to speech multilingual personalized videos">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/synthesia.io" class="tool-logo" alt="Synthesia AI Video" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🤖</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Synthesia</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (8.9k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">AI-powered video creation platform that generates personalized videos with digital avatars in multiple languages from text input.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">AI Video Generation</span>
+                            <span class="feature-tag">Digital Avatars</span>
+                            <span class="feature-tag">Text-to-Speech</span>
+                            <span class="feature-tag">Multilingual Support</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🤖 AI Video</div>
+                            <a href="https://www.synthesia.io/" target="_blank" class="action-button">Try Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media Tools -->
+        <div class="category-section" data-category="Social Media">
+            <h2 class="category-title">📱 Social Media Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-category="Social Media" data-search="hootsuite social media management scheduling analytics multiple platforms">
+                    <div class="hot-badge">🔥 Popular</div>
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/hootsuite.com" class="tool-logo" alt="Hootsuite Social Media Management" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🦉</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Hootsuite</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.1 (34.8k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Comprehensive social media management platform for scheduling posts, monitoring engagement, and analyzing performance across multiple social networks.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Multi-Platform Management</span>
+                            <span class="feature-tag">Content Scheduling</span>
+                            <span class="feature-tag">Social Analytics</span>
+                            <span class="feature-tag">Team Collaboration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🦉 Social Management</div>
+                            <a href="https://hootsuite.com/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Social Media" data-search="buffer social media posting scheduling analytics content planning simple interface">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/buffer.com" class="tool-logo" alt="Buffer Social Media Scheduler" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📅</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Buffer</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.5 (28.7k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Intuitive social media management tool for planning, publishing, and analyzing content across social platforms with a clean interface.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Content Scheduling</span>
+                            <span class="feature-tag">Publishing Calendar</span>
+                            <span class="feature-tag">Performance Analytics</span>
+                            <span class="feature-tag">Simple Interface</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📅 Content Scheduling</div>
+                            <a href="https://buffer.com/" target="_blank" class="action-button">Try Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Social Media" data-search="sprout social engagement analytics listening customer service social CRM">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/sproutsocial.com" class="tool-logo" alt="Sprout Social Platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🌱</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Sprout Social</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="rating-text">4.4 (22.3k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Professional social media management and optimization platform with advanced analytics, social listening, and customer service features.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Social Listening</span>
+                            <span class="feature-tag">Advanced Analytics</span>
+                            <span class="feature-tag">Customer Service</span>
+                            <span class="feature-tag">Team Workflows</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🌱 Social CRM</div>
+                            <a href="https://sproutsocial.com/" target="_blank" class="action-button">Start Trial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Social Media" data-search="later visual content calendar instagram scheduling stories hashtag suggestions">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/later.com" class="tool-logo" alt="Later Visual Content Calendar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📸</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Later</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.3 (16.9k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Visual-first social media scheduler specializing in Instagram with drag-and-drop calendar, hashtag suggestions, and story scheduling.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Visual Calendar</span>
+                            <span class="feature-tag">Instagram Focus</span>
+                            <span class="feature-tag">Hashtag Tools</span>
+                            <span class="feature-tag">Story Scheduling</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📸 Visual Scheduling</div>
+                            <a href="https://later.com/" target="_blank" class="action-button">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Social Media" data-search="socialbee content scheduling recycling evergreen posts social media automation">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/socialbee.io" class="tool-logo" alt="SocialBee Content Recycling" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">🐝</div>
+                            <div class="tool-info">
+                                <div class="tool-name">SocialBee</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.2 (8.7k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Smart social media management tool with content recycling, category-based posting, and automated evergreen content scheduling.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Content Recycling</span>
+                            <span class="feature-tag">Category-based Posting</span>
+                            <span class="feature-tag">Evergreen Content</span>
+                            <span class="feature-tag">Team Collaboration</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">🐝 Content Automation</div>
+                            <a href="https://socialbee.io/" target="_blank" class="action-button">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="Social Media" data-search="planoly visual instagram planning content creator grid preview hashtag research">
+                    <div class="card-content">
+                        <div class="tool-header">
+                            <img src="https://logo.clearbit.com/planoly.com" class="tool-logo" alt="Planoly Instagram Planner" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="logo-fallback" style="display:none;">📋</div>
+                            <div class="tool-info">
+                                <div class="tool-name">Planoly</div>
+                                <div class="rating-section">
+                                    <div class="stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                    <span class="rating-text">4.1 (12.4k reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-description">Visual content planning platform designed for creators and brands to plan, schedule, and analyze Instagram and Pinterest content.</div>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Visual Grid Planning</span>
+                            <span class="feature-tag">Content Creator Focus</span>
+                            <span class="feature-tag">Hashtag Research</span>
+                            <span class="feature-tag">Auto-Post</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="category-tag">📋 Visual Planning</div>
+                            <a href="https://www.planoly.com/" target="_blank" class="action-button">Plan Content</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Professional Tools Directory - Enhanced Version - Initializing...');
+            
+            const searchInput = document.getElementById('searchInput');
+            const breadcrumb = document.getElementById('breadcrumb');
+            const currentCategory = document.getElementById('currentCategory');
+            const filterStatus = document.getElementById('filterStatus');
+            const categoryName = document.getElementById('categoryName');
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const categorySections = document.querySelectorAll('.category-section');
+            const toolCards = document.querySelectorAll('.tool-card');
+
+            // Animated counter effect
+            function animateNumbers() {
+                const counters = document.querySelectorAll('.trust-number');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            if (target === 98) {
+                                counter.textContent = target + '%';
+                            } else {
+                                counter.textContent = target.toLocaleString() + '+';
+                            }
+                        }
+                    };
+                    
+                    setTimeout(() => {
+                        updateCounter();
+                    }, Math.random() * 500);
+                });
+            }
+
+            setTimeout(animateNumbers, 1000);
+
+            function getURLParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            function filterByCategory(category) {
+                console.log('Filtering category:', category || 'All Tools');
+                
+                if (!category) {
+                    categorySections.forEach(section => {
+                        section.style.display = 'block';
+                    });
+                    toolCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    
+                    breadcrumb.style.display = 'none';
+                    filterStatus.style.display = 'none';
+                    updateCategoryLinks('');
+                } else {
+                    categorySections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    toolCards.forEach(card => {
+                        card.style.display = 'none';
+                    });
+                    
+                    const targetSection = document.querySelector(`[data-category="${category}"]`);
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                        targetSection.querySelectorAll('.tool-card').forEach(card => {
+                            card.style.display = 'block';
+                        });
+                        
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 100);
+                    }
+                    
+                    currentCategory.textContent = category;
+                    categoryName.textContent = category;
+                    breadcrumb.style.display = 'block';
+                    filterStatus.style.display = 'block';
+                    
+                    updateCategoryLinks(category);
+                }
+            }
+
+            function updateCategoryLinks(activeCategory) {
+                categoryLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    
+                    if ((!activeCategory && href === '?') || 
+                        href.includes(`category=${encodeURIComponent(activeCategory)}`)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    searchInput.value = '';
+                    
+                    const href = this.getAttribute('href');
+                    const category = href === '?' ? null : getURLParameter('category', href);
+                    
+                    window.history.pushState({}, '', href);
+                    filterByCategory(category);
+                });
+            });
+
+            window.addEventListener('popstate', function() {
+                const category = getURLParameter('category');
+                filterByCategory(category);
+            });
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                
+                if (query.length < 1) {
+                    const category = getURLParameter('category');
+                    filterByCategory(category);
+                    return;
+                }
+                
+                breadcrumb.style.display = 'none';
+                filterStatus.style.display = 'none';
+                
+                let hasResults = false;
+                categorySections.forEach(section => {
+                    let hasVisibleCards = false;
+                    const cards = section.querySelectorAll('.tool-card');
+                    
+                    cards.forEach(card => {
+                        const name = card.querySelector('.tool-name').textContent.toLowerCase();
+                        const description = card.querySelector('.tool-description').textContent.toLowerCase();
+                        const searchData = card.getAttribute('data-search').toLowerCase();
+                        
+                        if (name.includes(query) || description.includes(query) || searchData.includes(query)) {
+                            card.style.display = 'block';
+                            hasVisibleCards = true;
+                            hasResults = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    section.style.display = hasVisibleCards ? 'block' : 'none';
+                });
+                
+                console.log('Search results:', hasResults ? 'Found matches' : 'No matches');
+            });
+
+            function getURLParameter(name, url) {
+                if (url) {
+                    const params = new URLSearchParams(url.split('?')[1] || '');
+                    return params.get(name);
+                }
+                return getURLParameter(name);
+            }
+
+            document.querySelectorAll('.tool-logo').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const fallback = this.nextElementSibling;
+                    if (fallback && fallback.classList.contains('logo-fallback')) {
+                        fallback.style.display = 'flex';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.action-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const toolName = this.closest('.tool-card').querySelector('.tool-name').textContent;
+                    console.log(`User clicked tool: ${toolName}`);
+                });
+            });
+
+            const initialCategory = getURLParameter('category');
+            filterByCategory(initialCategory);
+
+            console.log('🎉 Professional Tools Directory Enhanced Version initialized!');
+        });
+    </script>
+</body>
+</html>
